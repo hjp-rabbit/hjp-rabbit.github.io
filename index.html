@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>呜呜呜看看色波-高清动漫壁纸与同人图鉴</title>
+  <meta name="description" content="呜呜呜看看色波，专注二次元动漫美图、同人插画与高清壁纸分享。每日更新，发现更多可爱、唯美、治愈系画作。">
+  <meta name="keywords" content="呜呜呜看看色波,动漫壁纸,二次元美图,同人插画,ACG图片,高清壁纸,二次元图库">
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+  <style>
+    /* 全局重置与字体 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      background: #faf7ff;
+      color: #2d2b3a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    ul {
+      list-style: none;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* 顶部头图区域 */
+    .hero {
+      background: linear-gradient(145deg, #ffd9e8 0%, #c9e4ff 100%);
+      padding: 40px 0 60px;
+      border-bottom-left-radius: 48px;
+      border-bottom-right-radius: 48px;
+      box-shadow: 0 8px 24px rgba(255, 140, 200, 0.12);
+    }
+    .hero-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .hero-copy {
+      flex: 1 1 380px;
+    }
+    .hero-copy .eyebrow {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #7c5cff;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,0.6);
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 40px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-copy h1 {
+      font-size: clamp(2.4rem, 8vw, 4.2rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff4d9d, #7a5cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 10px rgba(255, 200, 230, 0.3);
+    }
+    .hero-copy p {
+      font-size: 1.15rem;
+      color: #3f3356;
+      max-width: 600px;
+      background: rgba(255,255,240,0.5);
+      backdrop-filter: blur(2px);
+      padding: 12px 20px;
+      border-radius: 30px;
+      display: inline-block;
+    }
+    .hero-emoji {
+      flex: 0 1 260px;
+      font-size: 9rem;
+      text-align: center;
+      filter: drop-shadow(0 12px 20px rgba(255, 100, 150, 0.25));
+      animation: float 5s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    /* 导航 */
+    .nav-bar {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-radius: 60px;
+      padding: 8px 24px;
+      margin: 20px auto 30px;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-weight: 600;
+    }
+    .nav-links a {
+      padding: 8px 0;
+      border-bottom: 3px solid transparent;
+      transition: 0.2s;
+      color: #3b2c50;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #ff7eb0;
+      color: #d6336c;
+    }
+    .nav-search {
+      background: #f1ebff;
+      border-radius: 40px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-search span {
+      background: white;
+      border-radius: 30px;
+      padding: 2px 12px;
+      color: #a05bff;
+      font-weight: 500;
+    }
+    /* 分区标题 */
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      margin: 50px 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #1e1a2e;
+    }
+    .section-title:before {
+      content: "✦";
+      font-size: 2rem;
+      background: linear-gradient(145deg, #ff9acb, #b28aff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* 色波分类卡片 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+    }
+    .cat-item {
+      background: white;
+      border-radius: 28px;
+      padding: 18px 10px;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255, 200, 220, 0.3);
+    }
+    .cat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(255, 120, 170, 0.12);
+    }
+    .cat-emoji {
+      font-size: 3.4rem;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .cat-item h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3e2f4f;
+    }
+    .cat-item p {
+      font-size: 0.8rem;
+      color: #a59ab5;
+      margin-top: 4px;
+      letter-spacing: 0.4px;
+    }
+    /* 画廊瀑布流 */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 22px;
+    }
+    .art-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(80, 60, 120, 0.08);
+      transition: all 0.25s ease;
+      border: 1px solid #f3e8ff;
+    }
+    .art-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 16px 28px rgba(255, 126, 176, 0.2);
+    }
+    .art-thumb {
+      background: linear-gradient(135deg, #ffe2f0, #dfd0ff);
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.2rem;
+      color: #8a6ea0;
+    }
+    .art-info {
+      padding: 14px 16px 18px;
+    }
+    .art-info h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #2d2142;
+    }
+    .art-info .taglist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 12px;
+    }
+    .tag {
+      background: #f2e9ff;
+      color: #6b4aa0;
+      border-radius: 20px;
+      padding: 2px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .meta-line {
+      display: flex;
+      justify-content: space-between;
+      color: #ab9bc0;
+      font-size: 0.75rem;
+      border-top: 1px dashed #e2d7f0;
+      padding-top: 12px;
+    }
+    /* 榜单 / 热门推荐 */
+    .rank-panel {
+      background: #ffffffd9;
+      backdrop-filter: blur(5px);
+      border-radius: 40px;
+      padding: 28px 24px;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border: 1px solid rgba(255, 190, 220, 0.3);
+    }
+    .rank-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      justify-content: space-between;
+    }
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 240px;
+      background: rgba(245, 240, 255, 0.7);
+      border-radius: 60px;
+      padding: 10px 18px;
+    }
+    .rank-num {
+      background: linear-gradient(140deg, #ff9ac0, #a37cf4);
+      color: white;
+      font-weight: 800;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* 双列区 */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: start;
+      margin: 30px 0;
+    }
+    .info-card {
+      background: white;
+      border-radius: 28px;
+      padding: 24px;
+      border: 1px solid #f0d5ff;
+    }
+    .info-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    .info-card ul {
+      margin: 12px 0 0;
+    }
+    .info-card li {
+      padding: 10px 0;
+      border-bottom: 1px dashed #e5d5f0;
+      display: flex;
+      gap: 12px;
+    }
+    .info-card li:last-child {
+      border-bottom: none;
+    }
+    .dot-bullet {
+      color: #ff6fa7;
+      font-weight: bold;
+    }
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .faq-item {
+      background: #faf3ff;
+      border-radius: 28px;
+      padding: 24px;
+      transition: 0.15s;
+      border-left: 8px solid #d2b0ff;
+    }
+    .faq-item h4 {
+      color: #3a266b;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+    .faq-item p {
+      color: #4f4063;
+    }
+    /* footer */
+    .footer {
+      margin-top: 70px;
+      background: #1c1626;
+      color: #b9a8d4;
+      border-radius: 40px 40px 0 0;
+      padding: 40px 30px 30px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .footer-links a {
+      color: #dccaf0;
+    }
+    .footer-links a:hover {
+      color: #ffb3d6;
+    }
+    .copyright {
+      font-size: 0.85rem;
+      opacity: 0.6;
+      border-top: 1px solid #3b2e4c;
+      padding-top: 24px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    /* 响应式 */
+    @media (max-width: 900px) {
+      .hero-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-emoji {
+        font-size: 5rem;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .nav-bar {
+        justify-content: center;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+    @media (max-width: 580px) {
+      .container {
+        padding: 0 14px;
+      }
+      .nav-links {
+        gap: 16px;
+        justify-content: center;
+        margin: 6px 0;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+      }
+      .art-thumb {
+        height: 140px;
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部hero -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">♡ 每日更新 · 萌系 · 治愈 · 幻想 ♡</div>
+        <h1>呜呜呜看看色波</h1>
+        <p>✨ 发现最可爱的二次元插画 & 高清壁纸，一起掉进色波里！</p>
+      </div>
+      <div class="hero-emoji">
+        🎀👀🌸
+      </div>
+    </div>
+  </header>
+
+  <!-- 导航栏 -->
+  <nav class="container">
+    <div class="nav-bar">
+      <div class="nav-links">
+        <a href="#gallery">最新图鉴</a>
+        <a href="#rank">色波榜单</a>
+        <a href="#categories">分类</a>
+        <a href="#faq">常见问题</a>
+      </div>
+      <div class="nav-search">
+        <span>🔍 呜哇搜索</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- 分类速览 -->
+    <section id="categories">
+      <h2 class="section-title">色波分类 · 你想看的在这里</h2>
+      <div class="category-grid">
+        <div class="cat-item"><div class="cat-emoji">🌸</div><h3>粉嫩少女</h3><p>2k+ 张</p></div>
+        <div class="cat-item"><div class="cat-emoji">🌙</div><h3>月夜幻想</h3><p>1.2k+ 张</p></div>
+        <div class="cat-item"><div class="cat-emoji">🐱</div><h3>猫耳特辑</h3><p>876 张</p></div>
+        <div class="cat-item"><div class="cat-emoji">💫</div><h3>星河梦境</h3><p>1.5k+ 张</p></div>
+        <div class="cat-item"><div class="cat-emoji">🍓</div><h3>甜系治愈</h3><p>2.1k+ 张</p></div>
+        <div class="cat-item"><div class="cat-emoji">🎧</div><h3>音乐少女</h3><p>654 张</p></div>
+      </div>
+    </section>
+
+    <!-- 最新画廊 / 瀑布流 使用表情代替占位 -->
+    <section id="gallery">
+      <h2 class="section-title">最新色波 · 今日更新</h2>
+      <div class="gallery-grid">
+        <article class="art-card">
+          <div class="art-thumb">🌷🎀</div>
+          <div class="art-info">
+            <h3>软萌兔耳少女</h3>
+            <div class="taglist"><span class="tag">粉系</span><span class="tag">治愈</span></div>
+            <div class="meta-line"><span>❤ 2.3k</span><span>⭐ 4.8</span></div>
+          </div>
+        </article>
+        <article class="art-card">
+          <div class="art-thumb">🌌🦋</div>
+          <div class="art-info">
+            <h3>星蝶之梦</h3>
+            <div class="taglist"><span class="tag">幻想</span><span class="tag">高清</span></div>
+            <div class="meta-line"><span>❤ 1.8k</span><span>⭐ 4.9</span></div>
+          </div>
+        </article>
+        <article class="art-card">
+          <div class="art-thumb">🍡🍧</div>
+          <div class="art-info">
+            <h3>夏日祭典</h3>
+            <div class="taglist"><span class="tag">和风</span><span class="tag">浴衣</span></div>
+            <div class="meta-line"><span>❤ 3.1k</span><span>⭐ 4.7</span></div>
+          </div>
+        </article>
+        <article class="art-card">
+          <div class="art-thumb">🐇☁️</div>
+          <div class="art-info">
+            <h3>云上白兔</h3>
+            <div class="taglist"><span class="tag">可爱</span><span class="tag">治愈</span></div>
+            <div class="meta-line"><span>❤ 2.0k</span><span>⭐ 4.9</span></div>
+          </div>
+        </article>
+        <article class="art-card">
+          <div class="art-thumb">🎧🎶</div>
+          <div class="art-info">
+            <h3>节奏心动</h3>
+            <div class="taglist"><span class="tag">音乐</span><span class="tag">氛围</span></div>
+            <div class="meta-line"><span>❤ 1.6k</span><span>⭐ 4.6</span></div>
+          </div>
+        </article>
+        <article class="art-card">
+          <div class="art-thumb">🦄✨</div>
+          <div class="art-info">
+            <h3>独角幻境</h3>
+            <div class="taglist"><span class="tag">梦幻</span><span class="tag">光效</span></div>
+            <div class="meta-line"><span>❤ 2.7k</span><span>⭐ 4.8</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 热门榜单+编辑推荐 双列 -->
+    <section id="rank">
+      <div class="rank-panel">
+        <h2 class="section-title" style="margin-top:0;">🏆 本周色波热榜</h2>
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-num">1</span> 粉彩蛋糕少女</div>
+          <div class="rank-item"><span class="rank-num">2</span> 透明感泳装</div>
+          <div class="rank-item"><span class="rank-num">3</span> 黑猫恶魔</div>
+          <div class="rank-item"><span class="rank-num">4</span> 糖果色梦境</div>
+          <div class="rank-item"><span class="rank-num">5</span> 眼镜萌娘</div>
+          <div class="rank-item"><span class="rank-num">6</span> 花嫁系列</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 双列：关于色波 & 使用指南 -->
+    <div class="two-col">
+      <aside class="info-card">
+        <h3>💗 什么是「呜呜呜看看色波」？</h3>
+        <p>这是一个为二次元同好打造的插画分享与发现平台。我们每天从Pixiv、Twitter等公开社区精选「色波」——即让人心动、可爱、充满视觉冲击的画作。所有图片均标注画师信息（尽力溯源），仅用于交流欣赏。</p>
+        <ul>
+          <li><span class="dot-bullet">✦</span> 每日更新 30+ 张高清壁纸</li>
+          <li><span class="dot-bullet">✦</span> 支持按画风/角色/颜色检索</li>
+          <li><span class="dot-bullet">✦</span> 无压缩预览，原图下载</li>
+        </ul>
+      </aside>
+      <aside class="info-card">
+        <h3>🔍 怎样快速找到喜欢的图？</h3>
+        <ul>
+          <li><span class="dot-bullet">➀</span> 使用顶部分类快速筛选</li>
+          <li><span class="dot-bullet">➁</span> 点击「色波榜单」查看热门</li>
+          <li><span class="dot-bullet">➂</span> 搜索标签如 #粉发 #萝莉 #梦幻</li>
+          <li><span class="dot-bullet">➃</span> 收藏夹同步多设备</li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- FAQ 区块 -->
+    <section id="faq">
+      <h2 class="section-title">关于色波，你可能想知道</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>这些图片可以商用吗？</h4>
+          <p>本站所有图片版权归原画师所有，仅作个人欣赏/壁纸使用。禁止商用或二次修改，请支持正版。</p>
+        </div>
+        <div class="faq-item">
+          <h4>为什么叫“色波”？</h4>
+          <p>取自“色彩波纹”，形容视觉冲击力强、让人忍不住“呜呜呜”的漂亮图片～ 也是圈内对美图的戏称。</p>
+        </div>
+        <div class="faq-item">
+          <h4>如何投稿我的作品？</h4>
+          <p>私信官方邮箱，附上原图与画师Pixiv链接，审核后展示并标注来源。</p>
+        </div>
+        <div class="faq-item">
+          <h4>下载原图需要注册吗？</h4>
+          <p>无需注册即可下载大部分壁纸，部分高分辨率需要登录免费账号。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#">关于我们</a>
+        <a href="#">画师入驻</a>
+        <a href="#">使用条款</a>
+        <a href="#">隐私政策</a>
+        <a href="#">联系我们</a>
+      </div>
+      <div class="copyright">
+        © 2025 呜呜呜看看色波 · 仅供二次元同好交流，所有图片版权归原作者所有。<br>
+        本页面为虚拟设计，内容均为示例。
+      </div>
+    </div>
+  </footer>
+
+  <!-- 简单交互（平滑滚动） -->
+  <script>
+    (function() {
+      // 所有导航链接平滑滚动
+      const links = document.querySelectorAll('.nav-links a, .footer-links a');
+      for (let link of links) {
+        link.addEventListener('click', function(e) {
+          const hash = this.getAttribute('href');
+          if (hash && hash.startsWith('#')) {
+            const target = document.querySelector(hash);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
